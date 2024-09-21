@@ -2,6 +2,9 @@
 
 This is a fork of [Social Networking Platform](https://github.com/himokkk/Social-Networking-Platform) group project built with Django for the backend and React for the frontend. Web app allows users to create account, add new posts, react with likes and comments, make friends.
 
+> [!WARNING]
+> ⚠️ This fork is currently undergoing import and may not function perfectly. Issues may occur during use.
+
 ### Django First Run
 
 ```powershell
