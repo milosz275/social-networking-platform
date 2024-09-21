@@ -11,43 +11,35 @@ import Admin from './pages/admin/Admin';
 import Main from './pages/main/Main';
 import './App.css';
 import "@fontsource/jetbrains-mono";
-import "@fontsource/jetbrains-mono/400.css"; 
+import "@fontsource/jetbrains-mono/400.css";
 import "@fontsource/jetbrains-mono/400-italic.css";
 import * as urls from './urls';
 
 // prevent ctrl + save
-document.addEventListener("keydown", function(e) {
+document.addEventListener("keydown", function (e) {
   if (e.key === 's' && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
     e.preventDefault();
   }
 }, false);
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "ziomki App",
-    };
-  }
-  render() {
-    return (React.createElement(
-      'div',
-      { className: 'App' },
-      React.createElement(BrowserRouter, null,
-        React.createElement(Routes, null,
-          React.createElement(Route, { path: urls.ROOT_URL, element: React.createElement(Home, {}) }),
-          React.createElement(Route, { path: urls.LOGIN_URL, element: React.createElement(Login, {}) }),
-          React.createElement(Route, { path: urls.REGISTER_URL, element: React.createElement(Register, {}) }),
-          React.createElement(Route, { path: urls.CHAT_URL, element: React.createElement(Chat, {}) }),
-          React.createElement(Route, { path: urls.TERMS_URL, element: React.createElement(Terms, {}) }),
-          React.createElement(Route, { path: urls.DEBUG_URL, element: React.createElement(Debug, {}) }),
-          React.createElement(Route, { path: urls.MAIN_URL, element: React.createElement(Main, {}) }),
-          React.createElement(Route, { path: urls.ADMIN_URL, element: React.createElement(Admin, {}) }),
-          React.createElement(Route, { path: '*', element: React.createElement(ErrorPage, {}), })
-      )
-      )
-    ));
-  }
+function App() {
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path={urls.ROOT_URL} element={<Home />} />
+          <Route path={urls.LOGIN_URL} element={<Login />} />
+          <Route path={urls.REGISTER_URL} element={<Register />} />
+          <Route path={urls.CHAT_URL} element={<Chat />} />
+          <Route path={urls.TERMS_URL} element={<Terms />} />
+          <Route path={urls.DEBUG_URL} element={<Debug />} />
+          <Route path={urls.MAIN_URL} element={<Main />} />
+          <Route path={urls.ADMIN_URL} element={<Admin />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
